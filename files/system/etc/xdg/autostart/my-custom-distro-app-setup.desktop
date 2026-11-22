@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=My Custom Distro App Setup
+Comment=Choose optional applications for this user account
+Exec=/usr/bin/python3 /usr/libexec/my-custom-distro/app_setup.py
+Icon=my-custom-distro
+Terminal=false
+OnlyShowIn=KDE;
+X-KDE-autostart-after=panel
