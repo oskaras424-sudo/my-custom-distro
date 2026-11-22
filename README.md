@@ -1,43 +1,50 @@
-# BlueBuild Template &nbsp; [![bluebuild build badge](https://github.com/blue-build/template/actions/workflows/build.yml/badge.svg)](https://github.com/blue-build/template/actions/workflows/build.yml)
+# My Custom Distro
 
-See the [BlueBuild docs](https://blue-build.org/how-to/setup/) for quick setup instructions for setting up your own repository based on this template.
+A personal, gaming-focused Linux distribution built with [BlueBuild](https://blue-build.org/) on top of [Bazzite](https://bazzite.gg/).
 
-After setup, it is recommended you update this README to describe your custom image.
+> **Project status: foundation stage.** This image is experimental and is not ready to replace a daily-use operating system. We will build and test it in stages before recommending installation.
 
-## Installation
+## Current foundation
 
-> [!WARNING]  
-> [This is an experimental feature](https://www.fedoraproject.org/wiki/Changes/OstreeNativeContainerStable), try at your own discretion.
+- **Base:** Bazzite stable desktop image
+- **Graphics:** NVIDIA-open driver image for Turing and newer GPUs (including GTX 16-series)
+- **Desktop:** KDE Plasma, inherited from Bazzite
+- **System utilities:** btop, fastfetch, git and micro
+- **Image builder:** BlueBuild
+- **Build automation:** GitHub Actions
 
-To rebase an existing atomic Fedora installation to the latest build:
+Bazzite provides the gaming-focused base. The goal of this project is to develop its own visual identity, desktop experience, settings tools and gaming-focused applications on top of that foundation.
 
-- First rebase to the unsigned image, to get the proper signing keys and policies installed:
-  ```
-  rpm-ostree rebase ostree-unverified-registry:ghcr.io/blue-build/template:latest
-  ```
-- Reboot to complete the rebase:
-  ```
-  systemctl reboot
-  ```
-- Then rebase to the signed image, like so:
-  ```
-  rpm-ostree rebase ostree-image-signed:docker://ghcr.io/blue-build/template:latest
-  ```
-- Reboot again to complete the installation
-  ```
-  systemctl reboot
-  ```
+## Build status
 
-The `latest` tag will automatically point to the latest build. That build will still always use the Fedora version specified in `recipe.yml`, so you won't get accidentally updated to the next major version.
+[![BlueBuild](https://github.com/oskaras424-sudo/my-custom-distro/actions/workflows/build.yml/badge.svg)](https://github.com/oskaras424-sudo/my-custom-distro/actions/workflows/build.yml)
 
-## ISO
+Open the **Actions** tab to see build results. A green check means the image build completed; it does not mean the image has been fully tested on hardware.
 
-If build on Fedora Atomic, you can generate an offline ISO with the instructions available [here](https://blue-build.org/how-to/generate-iso/#_top). These ISOs cannot unfortunately be distributed on GitHub for free due to large sizes, so for public projects something else has to be used for hosting.
+## Image
 
-## Verification
+The intended image reference is:
 
-These images are signed with [Sigstore](https://www.sigstore.dev/)'s [cosign](https://github.com/sigstore/cosign). You can verify the signature by downloading the `cosign.pub` file from this repo and running the following command:
-
-```bash
-cosign verify --key cosign.pub ghcr.io/blue-build/template
+```text
+ghcr.io/oskaras424-sudo/my-custom-distro:latest
 ```
+
+Do not install or rebase to this image until a build has succeeded and the resulting image has been tested. Keep a known-good recovery option and back up important data before any operating-system installation.
+
+## Roadmap
+
+- [x] Create the BlueBuild repository and initial image recipe
+- [x] Select the Bazzite NVIDIA-open foundation for GTX 16-series hardware
+- [ ] Verify the first automated build
+- [ ] Choose the final distribution name and visual identity
+- [ ] Create original branding, wallpapers, icons and boot artwork
+- [ ] Develop a custom desktop experience and settings application
+- [ ] Add a gaming and performance control centre
+- [ ] Test the image in a virtual machine or spare installation
+- [ ] Prepare installation media and release documentation
+
+## Development
+
+Edit `recipes/recipe.yml` to change the image build. The workflow in `.github/workflows/build.yml` runs automatically when relevant files are pushed and can also be started manually from the Actions tab.
+
+See the [BlueBuild recipe reference](https://blue-build.org/reference/recipe/) and [Bazzite documentation](https://docs.bazzite.gg/) before adding system packages or changing the base image.
