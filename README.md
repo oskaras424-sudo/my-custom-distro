@@ -4,28 +4,25 @@ A personal gaming-focused Linux distribution built with [BlueBuild](https://blue
 
 > **Project status: foundation stage.** This image is experimental and is not ready to replace a daily-use operating system. Test it before relying on it.
 
-## Desktop foundation
+## What's included by default
 
 - **Base:** Bazzite stable KDE Plasma desktop
 - **Graphics:** Bazzite NVIDIA-open image for supported NVIDIA GPUs, including GTX 16-series
-- **Browser:** Firefox (the only additional app installed by default)
-- **Gaming:** Steam, provided by the Bazzite base
-- **File manager:** Dolphin, provided by KDE
-- **Terminal:** Konsole, provided by KDE
+- **Browser:** Firefox
+- **Gaming:** Steam from the Bazzite base
+- **File manager:** Dolphin
+- **Terminal:** Konsole
 - **Desktop configuration:** KDE System Settings
 - **Software centre:** Discover
 - **System monitor:** KDE System Monitor
-- **Task Manager:** custom Windows-inspired Qt/PySide6 application
+- **Screenshot tool:** Spectacle
+- **Task Manager:** Custom Windows-inspired Qt/PySide6 application
 
-## What is intentionally not preinstalled
-
-This image does not add Thunderbird, LibreOffice, VLC, GIMP, Krita, OBS Studio, Blender, Kdenlive, Lutris, ProtonUp-Qt, Mission Center, Flatseal, Warehouse, KCalc or extra terminal utilities.
-
-Flathub is available in Discover so users can choose optional apps themselves. The image avoids installing a large collection of applications that may not be needed.
+The image only adds Firefox and the Python libraries required by the custom Task Manager. Core KDE tools and Steam come from the Bazzite base image. Flathub remains available in Discover so users can choose any optional apps themselves.
 
 ## My Custom Distro Center
 
-The control centre provides shortcuts to the essentials: Task Manager, Firefox, Steam, KDE System Settings, Discover, Konsole, Dolphin, KDE System Monitor, screenshots and the Afterburn colour scheme.
+The control centre provides shortcuts to Task Manager, Firefox, Steam, KDE System Settings, Discover, Konsole, Dolphin, KDE System Monitor, screenshots and the Afterburn colour scheme.
 
 ## Custom Task Manager
 
@@ -43,7 +40,7 @@ Its settings include colour presets, a custom accent colour, compact/comfortable
 
 The image keeps Bazzite's upstream gaming and driver configuration intact. It avoids aggressive kernel, CPU or GPU tweaks that could reduce stability or interfere with game compatibility.
 
-KDE Plasma provides the main desktop customisation tools. Firefox and the custom Task Manager are the only additional applications in the default app setup; core KDE apps and Steam come from the Bazzite base.
+KDE Plasma provides the main desktop customisation tools. The default app list is deliberately small, with optional applications left to the user.
 
 ## Build status
 
