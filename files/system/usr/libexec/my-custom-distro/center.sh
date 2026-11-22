@@ -16,6 +16,7 @@ while true; do
   choice="$(
     kdialog --title "$APP_TITLE" \
       --menu "Welcome to My Custom Distro. Choose a tool to open:" \
+      taskmanager "Open Task Manager" \
       steam "Launch Steam" \
       monitor "System monitor (btop)" \
       overview "System overview (fastfetch)" \
@@ -26,6 +27,9 @@ while true; do
   )" || exit 0
 
   case "$choice" in
+    taskmanager)
+      nohup /usr/bin/python3 /usr/libexec/my-custom-distro/task_manager.py >/dev/null 2>&1 &
+      ;;
     steam)
       if command -v steam >/dev/null 2>&1; then
         nohup steam >/dev/null 2>&1 &
