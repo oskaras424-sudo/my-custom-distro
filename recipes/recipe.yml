@@ -1,23 +1,18 @@
 ---
 # yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
 
-# Image published to ghcr.io/oskaras424-sudo/my-custom-distro
 name: my-custom-distro
 description: "A custom gaming-focused Linux distribution built on Bazzite."
 
-# Bazzite's NVIDIA-open desktop image supports NVIDIA Turing GPUs,
-# including the GTX 16-series. Keep the upstream stable channel.
 base-image: ghcr.io/ublue-os/bazzite-nvidia-open
 image-version: stable
 
 modules:
-  # Keep a place for our own system configuration and branding assets.
   - type: files
     files:
       - source: system
         destination: /
 
-  # Small set of useful tools for administration and system inspection.
   - type: dnf
     install:
       packages:
@@ -25,9 +20,9 @@ modules:
         - fastfetch
         - git
         - micro
+        - python3-pyside6
+        - python3-psutil
 
-  # Give the system its own visible identity without changing Fedora's
-  # underlying ID, which helps preserve compatibility with Fedora tooling.
   - type: os-release
     properties:
       NAME: "My Custom Distro"
@@ -35,5 +30,4 @@ modules:
       VARIANT: "Gaming Edition"
       VARIANT_ID: "gaming"
 
-  # Required for signed Universal Blue images.
   - type: signing
