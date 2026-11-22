@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=My Custom Distro Center
+GenericName=Gaming and System Tools
+Comment=Open gaming tools, system monitoring and desktop settings
+Exec=/usr/bin/bash /usr/libexec/my-custom-distro/center.sh
+Icon=my-custom-distro
+Terminal=false
+Categories=System;Utility;Game;
+StartupNotify=true
