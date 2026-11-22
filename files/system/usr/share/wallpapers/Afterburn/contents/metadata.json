@@ -1,0 +1,13 @@
+{
+  "KPlugin": {
+    "Id": "my-custom-distro-afterburn",
+    "Name": "Afterburn",
+    "Description": "Dark graphite, crimson light and fractured orbital geometry.",
+    "Authors": [
+      {
+        "Name": "My Custom Distro"
+      }
+    ],
+    "License": "MIT"
+  }
+}
