@@ -1,39 +1,31 @@
 # My Custom Distro
 
-A personal, gaming-focused Linux distribution built with [BlueBuild](https://blue-build.org/) on top of [Bazzite](https://bazzite.gg/).
+A personal gaming-focused Linux distribution built with [BlueBuild](https://blue-build.org/) on top of the Bazzite KDE desktop image.
 
-> **Project status: foundation stage.** This image is experimental and is not ready to replace a daily-use operating system. We will build and test it in stages before recommending installation.
+> **Project status: foundation stage.** This image is experimental and is not ready to replace a daily-use operating system. Test it before relying on it.
 
 ## Desktop foundation
 
-- **Base:** Bazzite stable KDE desktop image
-- **Graphics:** Bazzite NVIDIA-open image for Turing GPUs, including GTX 16-series
-- **Desktop settings:** KDE System Settings and Plasma's built-in desktop customisation
-- **File manager:** Dolphin
-- **Terminal:** Konsole
-- **Software centre:** KDE Discover with Flatpak support
-- **System tools:** KDE System Monitor, Spectacle, Ark, Okular, Kate and KCalc
+- **Base:** Bazzite stable KDE Plasma desktop
+- **Graphics:** Bazzite NVIDIA-open image for supported NVIDIA GPUs, including GTX 16-series
+- **Browser:** Firefox (the only additional app installed by default)
+- **Gaming:** Steam, provided by the Bazzite base
+- **File manager:** Dolphin, provided by KDE
+- **Terminal:** Konsole, provided by KDE
+- **Desktop configuration:** KDE System Settings
+- **Software centre:** Discover
+- **System monitor:** KDE System Monitor
+- **Task Manager:** custom Windows-inspired Qt/PySide6 application
 
-## Pre-installed applications
+## What is intentionally not preinstalled
 
-BlueBuild installs these Flathub applications system-wide during first boot. An internet connection is needed for the initial Flatpak setup.
+This image does not add Thunderbird, LibreOffice, VLC, GIMP, Krita, OBS Studio, Blender, Kdenlive, Lutris, ProtonUp-Qt, Mission Center, Flatseal, Warehouse, KCalc or extra terminal utilities.
 
-| Category | Applications |
-|---|---|
-| Browser and communication | Firefox, Thunderbird |
-| Productivity | LibreOffice |
-| Media | VLC |
-| Gaming | Steam (from Bazzite), Lutris, ProtonUp-Qt |
-| Streaming and capture | OBS Studio |
-| Creative | GIMP, Krita, Kdenlive, Blender |
-| Customisation | Flatseal, Warehouse |
-| Performance | Custom Task Manager, KDE System Monitor, Mission Center |
-
-The first-boot Flatpak service installs apps from Flathub and keeps them independently updated. Discover remains available for installing anything else.
+Flathub is available in Discover so users can choose optional apps themselves. The image avoids installing a large collection of applications that may not be needed.
 
 ## My Custom Distro Center
 
-The custom control centre provides shortcuts to everyday apps, gaming tools, creative tools, KDE system utilities, the Afterburn theme and customisation tools.
+The control centre provides shortcuts to the essentials: Task Manager, Firefox, Steam, KDE System Settings, Discover, Konsole, Dolphin, KDE System Monitor, screenshots and the Afterburn colour scheme.
 
 ## Custom Task Manager
 
@@ -49,9 +41,9 @@ Its settings include colour presets, a custom accent colour, compact/comfortable
 
 ## Performance and customisation approach
 
-The image keeps Bazzite's upstream gaming and driver configuration intact. It adds monitoring and system-control tools without applying aggressive kernel, CPU or GPU tweaks that could reduce stability or interfere with game compatibility.
+The image keeps Bazzite's upstream gaming and driver configuration intact. It avoids aggressive kernel, CPU or GPU tweaks that could reduce stability or interfere with game compatibility.
 
-KDE Plasma provides the desktop's main customisation surface. Flatseal gives users control over Flatpak permissions; Warehouse manages installed Flatpaks and rollbacks.
+KDE Plasma provides the main desktop customisation tools. Firefox and the custom Task Manager are the only additional applications in the default app setup; core KDE apps and Steam come from the Bazzite base.
 
 ## Build status
 
@@ -74,7 +66,7 @@ Do not rebase or install this image until its build and signing have succeeded a
 - [x] Add original Afterburn wallpaper, icon and KDE colour scheme
 - [x] Add the My Custom Distro desktop control centre
 - [x] Add the first Windows-style Task Manager and its settings
-- [x] Add KDE desktop utilities and a first-boot application suite
+- [x] Keep the default application set deliberately minimal
 - [ ] Verify the automated image build and container signing
 - [ ] Make the Afterburn desktop theme and wallpaper first-login defaults
 - [ ] Expand desktop, panel, launcher and window-effect customisation
@@ -87,4 +79,4 @@ Edit `recipes/recipe.yml` to change the image build. The workflow in `.github/wo
 
 The workflow expects a GitHub Actions secret named `SIGNING_SECRET` for cosign signing. Never put private signing keys in the repository or share them in chat. See the [BlueBuild signing guide](https://blue-build.org/how-to/cosign/).
 
-See the [BlueBuild recipe reference](https://blue-build.org/reference/recipe/), the [Bazzite documentation](https://docs.bazzite.gg/) and [KDE applications](https://apps.kde.org/) before adding packages or changing the base image.
+See the [BlueBuild recipe reference](https://blue-build.org/reference/recipe/), [Bazzite documentation](https://docs.bazzite.gg/) and [KDE documentation](https://apps.kde.org/) before changing the base image or adding packages.
