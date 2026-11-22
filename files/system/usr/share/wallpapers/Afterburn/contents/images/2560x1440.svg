@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2560" height="1440" viewBox="0 0 2560 1440">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#08090d"/>
+      <stop offset=".52" stop-color="#101017"/>
+      <stop offset="1" stop-color="#050609"/>
+    </linearGradient>
+    <radialGradient id="glowA" cx="74%" cy="47%" r="52%">
+      <stop offset="0" stop-color="#8f1735" stop-opacity=".38"/>
+      <stop offset=".42" stop-color="#4b1029" stop-opacity=".17"/>
+      <stop offset="1" stop-color="#08090d" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowB" cx="10%" cy="92%" r="42%">
+      <stop offset="0" stop-color="#6d102c" stop-opacity=".23"/>
+      <stop offset="1" stop-color="#08090d" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="blade" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff7589"/>
+      <stop offset=".38" stop-color="#d72a50"/>
+      <stop offset="1" stop-color="#63112d"/>
+    </linearGradient>
+    <linearGradient id="bladeSoft" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#f24b6c" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#f24b6c" stop-opacity=".7"/>
+      <stop offset="1" stop-color="#f24b6c" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="silver" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f3e9ee"/>
+      <stop offset=".55" stop-color="#aeb0bb"/>
+      <stop offset="1" stop-color="#686b79"/>
+    </linearGradient>
+    <filter id="blur" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="34"/>
+    </filter>
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="15"/>
+    </filter>
+    <pattern id="grid" width="72" height="72" patternUnits="userSpaceOnUse">
+      <path d="M72 0H0V72" fill="none" stroke="#aeb0bb" stroke-opacity=".045" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="2560" height="1440" fill="url(#bg)"/>
+  <rect width="2560" height="1440" fill="url(#glowA)"/>
+  <rect width="2560" height="1440" fill="url(#glowB)"/>
+  <rect width="2560" height="1440" fill="url(#grid)"/>
+
+  <g fill="none" stroke-linecap="round">
+    <path d="M1440 -190C1840 130 2030 430 2700 540" stroke="#df254f" stroke-opacity=".14" stroke-width="2"/>
+    <path d="M1380 -160C1770 150 1970 470 2660 600" stroke="#df254f" stroke-opacity=".1" stroke-width="1"/>
+    <path d="M-240 1180C300 960 520 1030 890 1510" stroke="#df254f" stroke-opacity=".13" stroke-width="2"/>
+    <path d="M-210 1250C300 1050 550 1100 840 1510" stroke="#df254f" stroke-opacity=".08" stroke-width="1"/>
+    <path d="M1680 1200C1940 1040 2180 1010 2730 1100" stroke="#e7dce2" stroke-opacity=".08" stroke-width="1"/>
+  </g>
+
+  <ellipse cx="1840" cy="690" rx="560" ry="390" fill="#c31c48" opacity=".14" filter="url(#blur)"/>
+  <ellipse cx="1860" cy="700" rx="330" ry="250" fill="#ed315b" opacity=".08" filter="url(#blur)"/>
+
+  <!-- Orbital geometry -->
+  <g transform="translate(1820 690) rotate(-19)" fill="none">
+    <ellipse rx="510" ry="210" stroke="#f25a78" stroke-opacity=".16" stroke-width="2"/>
+    <ellipse rx="430" ry="170" stroke="#c6b8c1" stroke-opacity=".13" stroke-width="1.5" transform="rotate(48)"/>
+    <ellipse rx="350" ry="135" stroke="#f04468" stroke-opacity=".22" stroke-width="2" transform="rotate(-42)"/>
+    <path d="M-570 0H570" stroke="url(#bladeSoft)" stroke-width="2"/>
+    <path d="M0 -420V420" stroke="#d9cbd2" stroke-opacity=".12" stroke-width="1"/>
+  </g>
+
+  <!-- Abstract fractured monolith -->
+  <g transform="translate(1830 690)">
+    <path d="M-170 260L-35 -270L55 -270L-80 260Z" fill="#e92f58" opacity=".16" filter="url(#shadow)"/>
+    <path d="M-160 255L-25 -270L78 -270L-57 255Z" fill="url(#blade)"/>
+    <path d="M-25 -270L78 -270L340 255L230 255Z" fill="url(#silver)" opacity=".91"/>
+    <path d="M-57 255L230 255L340 255L182 170L-95 170Z" fill="#17151d"/>
+    <path d="M-25 -270L-57 255" stroke="#fff2f5" stroke-opacity=".48" stroke-width="3"/>
+    <path d="M78 -270L340 255" stroke="#fff2f5" stroke-opacity=".28" stroke-width="2"/>
+    <path d="M-95 170L182 170" stroke="#f45a78" stroke-opacity=".7" stroke-width="2"/>
+    <path d="M-105 90L246 90" stroke="#f45a78" stroke-opacity=".14" stroke-width="1"/>
+  </g>
+
+  <!-- Quiet technical markers -->
+  <g fill="#f4dce3">
+    <circle cx="1320" cy="420" r="3" opacity=".7"/>
+    <circle cx="2220" cy="310" r="2" opacity=".55"/>
+    <circle cx="2350" cy="910" r="3" opacity=".5"/>
+    <circle cx="1510" cy="1060" r="2" opacity=".45"/>
+  </g>
+  <g stroke="#f2dfe6" stroke-opacity=".26" fill="none">
+    <path d="M1320 420h86m-43-43v86"/>
+    <path d="M2220 310h54m-27-27v54"/>
+    <path d="M2350 910h64m-32-32v64"/>
+  </g>
+
+  <!-- Wordmark area -->
+  <g transform="translate(180 1090)">
+    <path d="M0 72L36 0H54L90 72H70L45 21L20 72Z" fill="url(#blade)"/>
+    <path d="M36 48H56" stroke="#f5e9ed" stroke-width="5" stroke-linecap="round"/>
+    <text x="120" y="42" fill="#f1edf0" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="35" font-weight="700" letter-spacing="8">MY CUSTOM DISTRO</text>
+    <text x="122" y="88" fill="#d94a68" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="16" font-weight="600" letter-spacing="7">GAMING EDITION  /  BUILD 001</text>
+  </g>
+
+  <path d="M180 1235H700" stroke="#d83d60" stroke-opacity=".55" stroke-width="2"/>
+  <text x="180" y="1280" fill="#a2a0ab" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13" letter-spacing="4">BUILT FOR PLAY. DESIGNED TO BE YOURS.</text>
+  <text x="2375" y="1320" fill="#777784" font-family="Consolas,monospace" font-size="12" text-anchor="end" letter-spacing="3">MCD // 001</text>
+</svg>
