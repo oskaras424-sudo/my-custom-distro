@@ -14,52 +14,23 @@ modules:
       - source: system
         destination: /
 
-  # Native KDE desktop tools and the Python runtime for our Task Manager.
-  # Bazzite already includes much of KDE; DNF ensures the core tools exist.
+  # Only the runtime libraries required by our custom Task Manager.
+  # KDE desktop tools are provided by the Bazzite KDE base image.
   - type: dnf
     install:
       packages:
-        - ark
-        - btop
-        - dolphin
-        - fastfetch
-        - git
-        - kate
-        - kcalc
-        - kde-gtk-config
-        - konsole
-        - micro
-        - okular
-        - plasma-discover
-        - plasma-discover-flatpak
-        - plasma-systemmonitor
-        - plasma-systemsettings
         - python3-pyside6
         - python3-psutil
-        - spectacle
 
-  # Install the everyday, creative and gaming app suite from Flathub.
-  # These are installed system-wide and updated separately from the OS image.
+  # Firefox is the only additional application installed by default.
+  # Steam and the KDE desktop essentials are provided by the Bazzite base.
   - type: default-flatpaks
     configurations:
       - notify: true
         scope: system
         install:
           - org.mozilla.firefox
-          - org.mozilla.thunderbird
-          - org.libreoffice.LibreOffice
-          - org.videolan.VLC
-          - com.obsproject.Studio
-          - org.gimp.GIMP
-          - org.kde.krita
-          - org.kde.kdenlive
-          - org.blender.Blender
-          - net.lutris.Lutris
-          - net.davidotek.pupgui2
-          - com.github.tchx84.Flatseal
-          - io.github.flattool.Warehouse
-          - io.missioncenter.MissionCenter
-      # Keep a per-user Flathub remote available for apps the user chooses later.
+      # Make Flathub available to users for optional applications they choose.
       - scope: user
 
   - type: os-release
