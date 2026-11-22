@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Optional App Setup
+GenericName=Choose optional applications
+Comment=Install or manage optional applications for your user account
+Exec=/usr/bin/python3 /usr/libexec/my-custom-distro/app_setup.py --manage
+Icon=my-custom-distro
+Terminal=false
+Categories=System;Settings;
+StartupNotify=true
