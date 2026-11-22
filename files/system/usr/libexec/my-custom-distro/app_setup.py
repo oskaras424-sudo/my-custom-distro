@@ -160,6 +160,7 @@ class AppSetup(QMainWindow):
             ("Gaming", "Gaming"),
             ("Creative", "Creative"),
             ("All apps", "All"),
+            ("Custom", "Customisation"),
             ("Clear", "None"),
         ):
             button = QPushButton(label)
@@ -206,6 +207,7 @@ class AppSetup(QMainWindow):
             for i, (name, app_id, category, description) in enumerate(by_category[heading.title()]):
                 card = AppCard(name, app_id, category, description)
                 self.cards[app_id] = card
+                card.check.toggled.connect(self.update_status)
                 grid.addWidget(card, i // 2, i % 2)
             section_layout.addLayout(grid)
             content.addWidget(section)
