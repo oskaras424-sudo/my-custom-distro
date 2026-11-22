@@ -11,6 +11,7 @@ A personal, gaming-focused Linux distribution built with [BlueBuild](https://blu
 - **Desktop:** KDE Plasma, inherited from Bazzite
 - **System utilities:** btop, fastfetch, git and micro
 - **Custom artwork:** Afterburn wallpaper and original distribution icon
+- **Custom visual theme:** Afterburn KDE Plasma colour scheme
 - **Custom application:** My Custom Distro Center launcher
 - **Image builder:** BlueBuild
 - **Build automation:** GitHub Actions
@@ -37,11 +38,11 @@ Do not install or rebase to this image until a build has succeeded and the resul
 
 - [x] Create the BlueBuild repository and initial image recipe
 - [x] Select the Bazzite NVIDIA-open foundation for GTX 16-series hardware
-- [x] Add original wallpaper and icon artwork
+- [x] Add original wallpaper, icon artwork and KDE colour scheme
 - [x] Add the first KDE desktop control-center launcher
 - [ ] Verify the first automated build and container signing
 - [ ] Choose the final distribution name and visual identity
-- [ ] Set a default desktop theme and wallpaper
+- [ ] Set the Afterburn theme and wallpaper as the first-login defaults
 - [ ] Develop a richer gaming and performance control centre
 - [ ] Test the image in a virtual machine or spare installation
 - [ ] Prepare installation media and release documentation
