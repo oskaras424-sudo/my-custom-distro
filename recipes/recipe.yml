@@ -8,20 +8,59 @@ base-image: ghcr.io/ublue-os/bazzite-nvidia-open
 image-version: stable
 
 modules:
+  # Add our own artwork, launchers, theme and custom applications.
   - type: files
     files:
       - source: system
         destination: /
 
+  # Native KDE desktop tools and the Python runtime for our Task Manager.
+  # Bazzite already includes much of KDE; DNF ensures the core tools exist.
   - type: dnf
     install:
       packages:
+        - ark
         - btop
+        - dolphin
         - fastfetch
         - git
+        - kate
+        - kcalc
+        - kde-gtk-config
+        - konsole
         - micro
+        - okular
+        - plasma-discover
+        - plasma-discover-flatpak
+        - plasma-systemmonitor
+        - plasma-systemsettings
         - python3-pyside6
         - python3-psutil
+        - spectacle
+
+  # Install the everyday, creative and gaming app suite from Flathub.
+  # These are installed system-wide and updated separately from the OS image.
+  - type: default-flatpaks
+    configurations:
+      - notify: true
+        scope: system
+        install:
+          - org.mozilla.firefox
+          - org.mozilla.thunderbird
+          - org.libreoffice.LibreOffice
+          - org.videolan.VLC
+          - com.obsproject.Studio
+          - org.gimp.GIMP
+          - org.kde.krita
+          - org.kde.kdenlive
+          - org.blender.Blender
+          - net.lutris.Lutris
+          - net.davidotek.pupgui2
+          - com.github.tchx84.Flatseal
+          - io.github.flattool.Warehouse
+          - io.missioncenter.MissionCenter
+      # Keep a per-user Flathub remote available for apps the user chooses later.
+      - scope: user
 
   - type: os-release
     properties:
