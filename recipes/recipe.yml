@@ -14,23 +14,17 @@ modules:
       - source: system
         destination: /
 
-  # Only the runtime libraries required by our custom Task Manager.
-  # KDE desktop tools are provided by the Bazzite KDE base image.
+  # Python runtime libraries required by our custom desktop applications.
   - type: dnf
     install:
       packages:
         - python3-pyside6
         - python3-psutil
 
-  # Firefox is the only additional application installed by default.
-  # Steam and the KDE desktop essentials are provided by the Bazzite base.
+  # Configure a per-user Flathub remote, but do not auto-install optional apps.
+  # The first-run app chooser installs only the apps each user selects.
   - type: default-flatpaks
     configurations:
-      - notify: true
-        scope: system
-        install:
-          - org.mozilla.firefox
-      # Make Flathub available to users for optional applications they choose.
       - scope: user
 
   - type: os-release
