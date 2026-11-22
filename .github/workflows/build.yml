@@ -28,8 +28,8 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Check Task Manager Python syntax
-        run: python3 -m py_compile files/system/usr/libexec/my-custom-distro/task_manager.py
+      - name: Check Python application syntax
+        run: python3 -m py_compile files/system/usr/libexec/my-custom-distro/task_manager.py files/system/usr/libexec/my-custom-distro/app_setup.py
 
       - name: Check desktop control center shell syntax
         run: bash -n files/system/usr/libexec/my-custom-distro/center.sh
