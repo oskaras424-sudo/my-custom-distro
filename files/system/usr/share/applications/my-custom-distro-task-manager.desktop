@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Task Manager
+GenericName=System Monitor
+Comment=Windows-style process, performance and system manager
+Exec=/usr/bin/python3 /usr/libexec/my-custom-distro/task_manager.py
+Icon=my-custom-distro
+Terminal=false
+Categories=System;Monitor;Utility;
+StartupNotify=true
