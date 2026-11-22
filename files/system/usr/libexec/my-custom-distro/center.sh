@@ -27,6 +27,7 @@ while true; do
     kdialog --title "$APP_TITLE" \
       --menu "My Custom Distro — choose an essential app or system tool:" \
       taskmanager "Task Manager" \
+      optionalapps "Choose optional applications" \
       browser "Firefox browser" \
       steam "Steam gaming" \
       settings "KDE System Settings" \
@@ -43,6 +44,9 @@ while true; do
   case "$choice" in
     taskmanager)
       launch_command /usr/bin/python3 /usr/libexec/my-custom-distro/task_manager.py
+      ;;
+    optionalapps)
+      launch_command /usr/bin/python3 /usr/libexec/my-custom-distro/app_setup.py --manage
       ;;
     browser)
       if command -v flatpak >/dev/null 2>&1 && flatpak info org.mozilla.firefox >/dev/null 2>&1; then
