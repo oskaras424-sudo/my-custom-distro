@@ -19,6 +19,7 @@ while true; do
       steam "Launch Steam" \
       monitor "System monitor (btop)" \
       overview "System overview (fastfetch)" \
+      theme "Apply Afterburn colour scheme" \
       settings "KDE system settings" \
       about "About this distribution" \
       quit "Close"
@@ -44,6 +45,14 @@ while true; do
         konsole --hold -e fastfetch >/dev/null 2>&1 &
       else
         show_error "Fastfetch or Konsole terminal is not available."
+      fi
+      ;;
+    theme)
+      if command -v plasma-apply-colorscheme >/dev/null 2>&1; then
+        plasma-apply-colorscheme Afterburn
+        kdialog --title "$APP_TITLE" --msgbox "Afterburn colours have been applied. You can choose the Afterburn wallpaper in System Settings > Wallpaper."
+      else
+        show_error "The KDE colour-scheme utility is not available."
       fi
       ;;
     settings)
