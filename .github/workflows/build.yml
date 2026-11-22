@@ -31,6 +31,9 @@ jobs:
       - name: Check Task Manager Python syntax
         run: python3 -m py_compile files/system/usr/libexec/my-custom-distro/task_manager.py
 
+      - name: Check desktop control center shell syntax
+        run: bash -n files/system/usr/libexec/my-custom-distro/center.sh
+
       - name: Build Custom Image
         uses: blue-build/github-action@v1.13
         with:
