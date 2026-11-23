@@ -26,7 +26,7 @@ jobs:
           - recipe.yml
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Check Python application syntax
         run: python3 -m py_compile files/system/usr/libexec/my-custom-distro/task_manager.py files/system/usr/libexec/my-custom-distro/app_setup.py
